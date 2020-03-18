@@ -170,6 +170,10 @@ Below is an example for taking a snapshot of the keyspace served by `$ENDPOINT` 
 ETCDCTL_API=3 etcdctl --endpoints $ENDPOINT snapshot save snapshotdb
 # exit 0
 
+When taking backup, if you have used certificates, you must mention
+Server.key, Server.crt, ca.cert along with endpoints
+--key="server.key" --cert="server.cert" --cacert="ca.cert" --key="server.key"
+
 # verify the snapshot
 ETCDCTL_API=3 etcdctl --write-out=table snapshot status snapshotdb
 +----------+----------+------------+------------+
